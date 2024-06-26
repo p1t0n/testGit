@@ -109,8 +109,8 @@
   "DiagramModel": {
     "SubjectAreas": {},
     "Diagrams": {
-      "4ed66c35-4a1b-4d09-8871-d624473d742d": {
-        "DiagramId": "4ed66c35-4a1b-4d09-8871-d624473d742d",
+      "40dfb817-694c-4e69-9476-02a549334bb7": {
+        "DiagramId": "40dfb817-694c-4e69-9476-02a549334bb7",
         "Name": "Main diagram",
         "SubjectAreaId": null,
         "Left": 0,
@@ -129,7 +129,7 @@
       }
     },
     "ActiveSubjectAreaId": null,
-    "ActiveDiagramId": "4ed66c35-4a1b-4d09-8871-d624473d742d"
+    "ActiveDiagramId": "40dfb817-694c-4e69-9476-02a549334bb7"
   },
   "NamingConvention": {
     "Standard": 0,
@@ -269,15 +269,15 @@
       "Template": null,
       "SelectItems": [
         {
-          "Id": "9e52aa46-8042-4ad6-ac7d-1e65337f7dee",
+          "Id": "ef648dd2-0733-474a-bf1a-475a843b8c15",
           "Value": "private"
         },
         {
-          "Id": "d80868a7-5d16-4f7f-8463-01914a6ec516",
+          "Id": "c990c1fc-d139-4466-9533-a6d0e60c78ad",
           "Value": "protected"
         },
         {
-          "Id": "1d64e4ae-f77e-42f2-9180-8c0b2080e7a7",
+          "Id": "9e0d1420-39fe-49f7-8d5a-5555f20fa593",
           "Value": "public"
         }
       ],
@@ -414,18 +414,18 @@
       "Template": null,
       "SelectItems": [
         {
-          "Id": "a6308390-3ba8-47ce-a657-df23f33429b3",
+          "Id": "ab04f701-efef-4e1e-be73-bd385fd7bd82",
           "Value": "source_1"
         }
       ],
       "Sources": {
-        "a6308390-3ba8-47ce-a657-df23f33429b3": {
+        "ab04f701-efef-4e1e-be73-bd385fd7bd82": {
           "IsDefault": true,
           "Code": "description: #<markdown_string>\ndatabase: #<database_name>\nschema: #<schema_name>\nloader: #<string>\nloaded_at_field: #<column_name>\nmeta: #{<dictionary>}\ntags: #[<string>]\n\n# requires v1.1+\nconfig:\n  #<source_config>: <config_value>\n\noverrides: #<string>\n\nfreshness:\n  warn_after:\n    count: #<positive_integer>\n    period: #minute | hour | day\n  error_after:\n    count: #<positive_integer>\n    period: #minute | hour | day\n  filter: #<where-condition>\n\nquoting:\n  database: #true | false\n  schema: #true | false\n  identifier: #true | false"
         }
       },
       "DefaultSelectedItemIds": [
-        "a6308390-3ba8-47ce-a657-df23f33429b3"
+        "ab04f701-efef-4e1e-be73-bd385fd7bd82"
       ],
       "InputType": 3,
       "IsIncludedInDbtYaml": true,

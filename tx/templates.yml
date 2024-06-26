@@ -1,17 +1,16 @@
-- id: f0b6697a-7eb4-4925-9f72-ec5eb6318733
-  value: |2-
+- value: |2-
 
       name: stage
-                
+              
       physicalName: 'stg_${parentPhysicalName}'           
 
       logicalName: '${parentLogicalName} dimension'
-                                                   
+                                                 
       color: 'orange'                                             # Color of object on diagram (string, green | blue | red | SqlDBM  colors, optional)
-        
+      
       inheritIdentifiersAs: pk                                    # Inherit primary key columns from parent table(s) as PK or non-PK attributes (string, pk | non-pk | none, default non-pk)
       inheritAttributes: true                                     # Inherit non-pk columns from parent table(s) (boolean, default true)      
-        
+      
       defaultColumns:                                             
         - name: '__load_date'                            
           logicalName: 'load date'                     
@@ -22,12 +21,12 @@
           default: 'current_date()'                             
           position: last
           logic: current_date()
-      
+
       nodeSettings:                                           
       - groupName: 'System UI Items'                          
         groupDesc: 'System UI Items'                          
         isEnabled: true                                                                            
-        
+      
         items:                                                                                               
         - itemType: materialization                              
           default: 'table'                                       
@@ -36,86 +35,88 @@
           - 'view'     
           isRequired: true                                      
           isEnabled: true
-            
-        - itemType: textArea                                     
-          itemDesc: 'Pre-SQL'                                    
-          itemName: 'preSql'                                               
-          itemDefault: Some SQL text                              
+        
+        - itemType: prePostSql
+          itemDesc: Pre Create SQL
+          itemName: preCreate
+          default: Some SQL text                              
           isRequired: false                                       
           isEnabled: true  
         
-        - itemType: textArea                                     
-          itemDesc: 'Post-SQL'                                    
-          itemName: 'postSql'                                               
-          itemDefault: Some SQL text                              
+        - itemType: prePostSql
+          itemDesc: Post Create SQL
+          itemName: postCreate
+          default: Some SQL text                              
           isRequired: false                                       
-          isEnabled: true 
-                                                       
+          isEnabled: true  
+        
+        - itemType: prePostSql
+          itemDesc: Pre Run SQL
+          itemName: preRun
+          default: Some SQL text                              
+          isRequired: false                                       
+          isEnabled: true  
+        
+        - itemType: prePostSql
+          itemDesc: Post Run SQL
+          itemName: postRun
+          default: Some SQL text                              
+          isRequired: false                                       
+          isEnabled: true  
+                                                
       - groupName: 'Column settings' 
         groupDesc: 'Column settings'
         isEnabled: true
-        
+      
         items: 
         - itemType: columnSet                            
           itemName: PK
           itemDesc: 'Primary key'
           isRequired: false
           isEnabled: true
-        
+      
         - itemType: columnSet                            
           itemName: AK
           itemDesc: 'Alternate key'
           isRequired: false
           isEnabled: true
-          
+        
       - groupName: 'User UI Items'                            
         groupDesc: 'Optional user configured items'                            
         isEnabled: true
-                                                                                                    
-        items:                                                
-        - itemType: dropdownSelector                     
-          itemDesc: 'My dropdown selector'                    
-          itemName: my_dropdown                               
-          default: 'option 1'                                 
-          options:                                            
-          - 'option 1'
-          - 'option 2'
-          - option 3
-          isRequired: false                                   
-          isEnabled: true                                                     
-        
-        - itemType: columnSet                            
-          itemDesc: 'My multi column selector'                
-          itemName: my_columnSelector                         
-          isRequired: false                                   
-          isEnabled: true                                                    
-            
-        - itemType: multiSelector                             
-          itemDesc: 'My multi selector'                       
-          itemName: my_multi_selector                         
-          options:                                            
-          - 'option 1'                                        
-          - 'option 2'                                        
-          isRequired: false                                   
-          isEnabled: true                                     
-                                                       
-        - itemType: textArea                                  
-          itemDesc: 'My Text Area'                            
-          itemName: my_textArea                                                          
-          isRequired: false                                   
-          isEnabled: true                                     
-        
-        - itemType: textLine                                   
-          itemDesc: 'My text line'                             
-          itemName: my_textline                                       
-          isRequired: false                                    
+                                                                                                  
+        items:           
+
+        - itemType: toggleButton                              
+          itemDesc: 'Rely on constraints'                               
+          itemName: rely_button                                 
+          default: true                                     
           isEnabled: true
   name: stage
   color: '#FC7917'
+  runScript: |-
+    {% if materialization == 'table' %}
+        INSERT INTO {{ location.mapping }}.{{name}}
+        ( 
+            {%- for col in columns %}
+            {{ col.name }}
+            {%- if not loop.last %}, {% endif %}
+            {%- endfor %}
+        )
+        {{ logic }}
+        ;
+        
+        {%- elif materialization == 'view' %}
+        SELECT
+            {%- for col in columns %}
+            {{ col.name }}
+            {%- if not loop.last %}, {% endif %}
+            {%- endfor %}
+        FROM {{ location.mapping }}.{{name}}    
+        WHERE FALSE
+        {%- endif %}
   createScript: |-
-    {%- if preSql | length > 0 %} {{ preSql }} {% endif %}
-
-        {%- if materialization == 'table' %}
+    {%- if materialization == 'table' %}
         CREATE OR REPLACE TABLE {{ location.databaseName }}.{{ location.schemaName }}.{{name}}
             (
                 {% for col in columns -%}
@@ -134,7 +135,7 @@
                             {%- if not loop.last %}, {% endif -%}
                         {%- endfor -%}
                         )                         
-                        {%- if true %} RELY {% endif -%}
+                        {%- if rely_button %} RELY {% endif -%}
                     {%- endif -%}
                 {%- endfor %}
                 {% for colSet in columnSets %}
@@ -145,7 +146,7 @@
                             {%- if not loop.last %}, {% endif -%}
                         {%- endfor -%}
                         )                         
-                        {%- if true %} RELY {% endif -%}
+                        {%- if rely_button %} RELY {% endif -%}
                     {%- endif -%}
                 {%- endfor %}        
             )
@@ -166,31 +167,5 @@
         {{logic}}
         ;
         {%- endif %}
-        
-        {% if postSql | length > 0 %} {{ postSql }} {% endif %}
-  runScript: |-
-    {% if preSql | length > 0 -%} {{ preSql }} {% endif -%}
-     
-        {% if materialization == 'table' %}
-        INSERT INTO {{ location.mapping }}.{{name}}
-        ( 
-            {%- for col in columns %}
-            {{ col.name }}
-            {%- if not loop.last %}, {% endif %}
-            {%- endfor %}
-        )
-        {{ logic }}
-        ;
-        
-        {%- elif materialization == 'view' %}
-        SELECT
-            {%- for col in columns %}
-            {{ col.name }}
-            {%- if not loop.last %}, {% endif %}
-            {%- endfor %}
-        FROM {{ location.mapping }}.{{name}}    
-        WHERE FALSE
-        {%- endif %}
-        
-        {% if postSql | length > 0 %} {{ postSql }} {% endif %}
+  id: f0b6697a-7eb4-4925-9f72-ec5eb6318733
   isDefault: true
