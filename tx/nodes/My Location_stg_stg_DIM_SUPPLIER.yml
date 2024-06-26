@@ -1,0 +1,65 @@
+name: stg_stg_DIM_SUPPLIER
+color: '#FC7917'
+isSource: false
+columns:
+  - name: SUPPLIERID
+    allowNulls: false
+    dataType: number(38,0)
+    defaultValue: ''
+    description: ''
+    id: d0a05387-830a-49eb-b3fa-718c4c96dfe1
+  - name: COMPANYNAME
+    allowNulls: false
+    dataType: varchar(16777216)
+    defaultValue: ''
+    description: ''
+    id: a9e703b7-c920-4e4a-8d53-92fd02560bcc
+  - name: PHONE
+    allowNulls: true
+    dataType: varchar(16777216)
+    defaultValue: ''
+    description: ''
+    id: 3bb30fb3-1265-4380-b94d-bfb8eac169ea
+  - name: __load_date
+    allowNulls: false
+    dataType: date
+    defaultValue: current_date()
+    description: load date
+    id: 1fc1e44c-e0ae-4830-94d5-63e7eabfa365
+  - name: __load_date_1
+    allowNulls: false
+    dataType: date
+    defaultValue: current_date()
+    description: load date
+    id: ceb6aa32-c320-44d9-a585-d8509d147926
+logic: |-
+  SELECT
+      stg_DIM_SUPPLIER.SUPPLIERID AS "SUPPLIERID",
+      stg_DIM_SUPPLIER.COMPANYNAME AS "COMPANYNAME",
+      stg_DIM_SUPPLIER.PHONE AS "PHONE",
+      stg_DIM_SUPPLIER.__load_date AS "__load_date",
+      current_date() AS "__load_date_1"
+  FROM {{ref('My Location', 'stg_DIM_SUPPLIER')}} "stg_DIM_SUPPLIER"
+description: ''
+logicalName: DIM_SUPPLIER dimension dimension
+columnSets:
+  - itemName: PK
+    setName: PK_stg_stg_DIM_SUPPLIER
+    columns:
+      - columnId: d0a05387-830a-49eb-b3fa-718c4c96dfe1
+        position: 1
+    id: 7598f521-9b02-47a3-8124-80d03d1a220c
+templateId: f0b6697a-7eb4-4925-9f72-ec5eb6318733
+materialization: table
+storageLocationId: 8fb6ca48-5eec-4dbd-81a3-1ff5a481da0b
+preCreate: Some SQL text
+postCreate: Some SQL text
+preRun: Some SQL text
+postRun: Some SQL text
+rely_button: true
+id: e5b4dbb1-6a53-4d30-850f-3732085e69bb
+nodeFormat: dynamic
+references:
+  8e92808b-2cb8-4e03-b50c-7ae9f6b74d67:
+    parentTableId: d2dfed31-a128-4955-bdfd-c008430be743
+    id: 8e92808b-2cb8-4e03-b50c-7ae9f6b74d67

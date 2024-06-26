@@ -1,0 +1,52 @@
+name: stg_BINARYEXAMPLE
+color: '#FC7917'
+isSource: false
+columns:
+  - name: B
+    allowNulls: true
+    dataType: binary(8388608)
+    defaultValue: ''
+    description: ''
+    id: 2a52f166-9d52-402f-9084-4f90653a1af7
+  - name: B100
+    allowNulls: true
+    dataType: binary(100)
+    defaultValue: ''
+    description: ''
+    id: 8d71081f-0093-476a-8510-8e4a1a81513b
+  - name: VB
+    allowNulls: true
+    dataType: binary(8388608)
+    defaultValue: ''
+    description: ''
+    id: b98fac3e-dfaf-4339-8f8a-7cf3110a65ab
+  - name: __load_date
+    allowNulls: false
+    dataType: date
+    defaultValue: current_date()
+    description: load date
+    id: a59d15b5-dac5-495a-ab57-714e67f5a141
+logic: |-
+  SELECT
+      BINARYEXAMPLE.B AS "B",
+      BINARYEXAMPLE.B100 AS "B100",
+      BINARYEXAMPLE.VB AS "VB",
+      current_date() AS "__load_date"
+  FROM {{ref('My Location', 'BINARYEXAMPLE')}} "BINARYEXAMPLE"
+description: ''
+logicalName: BINARYEXAMPLE dimension
+columnSets: []
+templateId: f0b6697a-7eb4-4925-9f72-ec5eb6318733
+materialization: table
+storageLocationId: 8fb6ca48-5eec-4dbd-81a3-1ff5a481da0b
+preCreate: Some SQL text
+postCreate: Some SQL text
+preRun: Some SQL text
+postRun: Some SQL text
+rely_button: true
+id: 2b19d8df-a484-4d39-81e0-9a8e85cfbaae
+nodeFormat: dynamic
+references:
+  da12a6df-0fc0-47b6-ae14-428ae5f35f98:
+    parentTableId: 1b2e811a-c211-41de-9eab-fd13c391a338
+    id: da12a6df-0fc0-47b6-ae14-428ae5f35f98
