@@ -1,0 +1,23 @@
+sourceId: 1b2e811a-c211-41de-9eab-fd13c391a338
+name: BINARYEXAMPLE
+locationId: 8fb6ca48-5eec-4dbd-81a3-1ff5a481da0b
+description: ''
+columns:
+  - name: B
+    dataType: binary(8388608)
+    id: bd5766af-62d4-4621-9ed6-af12fa5983d6
+    allowNulls: true
+    defaultValue: ''
+    description: ''
+  - name: B100
+    dataType: binary(100)
+    id: 464c1438-4a09-4e24-a3c1-97f46c58e4a4
+    allowNulls: true
+    defaultValue: ''
+    description: ''
+  - name: VB
+    dataType: binary(8388608)
+    id: 974688ed-069e-449a-b307-ce5eaab7db54
+    allowNulls: true
+    defaultValue: ''
+    description: ''

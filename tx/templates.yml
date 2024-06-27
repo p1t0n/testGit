@@ -1,0 +1,171 @@
+- value: |2-
+
+      name: stage
+              
+      physicalName: 'stg_${parentPhysicalName}'           
+
+      logicalName: '${parentLogicalName} dimension'
+                                                 
+      color: 'orange'                                             # Color of object on diagram (string, green | blue | red | SqlDBM  colors, optional)
+      
+      inheritIdentifiersAs: pk                                    # Inherit primary key columns from parent table(s) as PK or non-PK attributes (string, pk | non-pk | none, default non-pk)
+      inheritAttributes: true                                     # Inherit non-pk columns from parent table(s) (boolean, default true)      
+      
+      defaultColumns:                                             
+        - name: '__load_date'                            
+          logicalName: 'load date'                     
+          dataType: date
+          comment: 'load date'                             
+          nullable: false                                      
+          unique: false                                        
+          default: 'current_date()'                             
+          position: last
+          logic: current_date()
+
+      nodeSettings:                                           
+      - groupName: 'System UI Items'                          
+        groupDesc: 'System UI Items'                          
+        isEnabled: true                                                                            
+      
+        items:                                                                                               
+        - itemType: materialization                              
+          default: 'table'                                       
+          options:                                               
+          - 'table'  
+          - 'view'     
+          isRequired: true                                      
+          isEnabled: true
+        
+        - itemType: prePostSql
+          itemDesc: Pre Create SQL
+          itemName: preCreate
+          default: Some SQL text                              
+          isRequired: false                                       
+          isEnabled: true  
+        
+        - itemType: prePostSql
+          itemDesc: Post Create SQL
+          itemName: postCreate
+          default: Some SQL text                              
+          isRequired: false                                       
+          isEnabled: true  
+        
+        - itemType: prePostSql
+          itemDesc: Pre Run SQL
+          itemName: preRun
+          default: Some SQL text                              
+          isRequired: false                                       
+          isEnabled: true  
+        
+        - itemType: prePostSql
+          itemDesc: Post Run SQL
+          itemName: postRun
+          default: Some SQL text                              
+          isRequired: false                                       
+          isEnabled: true  
+                                                
+      - groupName: 'Column settings' 
+        groupDesc: 'Column settings'
+        isEnabled: true
+      
+        items: 
+        - itemType: columnSet                            
+          itemName: PK
+          itemDesc: 'Primary key'
+          isRequired: false
+          isEnabled: true
+      
+        - itemType: columnSet                            
+          itemName: AK
+          itemDesc: 'Alternate key'
+          isRequired: false
+          isEnabled: true
+        
+      - groupName: 'User UI Items'                            
+        groupDesc: 'Optional user configured items'                            
+        isEnabled: true
+                                                                                                  
+        items:           
+
+        - itemType: toggleButton                              
+          itemDesc: 'Rely on constraints'                               
+          itemName: rely_button                                 
+          default: true                                     
+          isEnabled: true
+  name: stage
+  color: '#FC7917'
+  runScript: |-
+    {% if materialization == 'table' %}
+        INSERT INTO {{ location.mapping }}.{{name}}
+        ( 
+            {%- for col in columns %}
+            {{ col.name }}
+            {%- if not loop.last %}, {% endif %}
+            {%- endfor %}
+        )
+        {{ logic }}
+        ;
+        
+        {%- elif materialization == 'view' %}
+        SELECT
+            {%- for col in columns %}
+            {{ col.name }}
+            {%- if not loop.last %}, {% endif %}
+            {%- endfor %}
+        FROM {{ location.mapping }}.{{name}}    
+        WHERE FALSE
+        {%- endif %}
+  createScript: |-
+    {%- if materialization == 'table' %}
+        CREATE OR REPLACE TABLE {{ location.databaseName }}.{{ location.schemaName }}.{{name}}
+            (
+                {% for col in columns -%}
+                    {{ col.name }} {{ col.dataType }}          
+                    {%- if not col.allowNulls %} NOT NULL
+                        {%- if col.defaultValue | length > 0 %} DEFAULT {{ col.defaultValue }}{% endif %}
+                    {%- endif %}
+                    {%- if col.description | length > 0 %} COMMENT '{{ col.description }}'{% endif %}
+                    {%- if not loop.last %}, {% endif %}
+                {% endfor -%} 
+                {% for colSet in columnSets %}
+                    {%- if colSet.itemName == 'PK' -%}
+                    , CONSTRAINT  {{ colSet.setName }} PRIMARY KEY (
+                        {%- for pkCol in colSet.columns -%}
+                            {{pkCol.name}}
+                            {%- if not loop.last %}, {% endif -%}
+                        {%- endfor -%}
+                        )                         
+                        {%- if rely_button %} RELY {% endif -%}
+                    {%- endif -%}
+                {%- endfor %}
+                {% for colSet in columnSets %}
+                    {%- if colSet.itemName == 'AK' -%}
+                    , CONSTRAINT  {{ colSet.setName }} UNIQUE (
+                        {%- for akCol in colSet.columns -%}
+                            {{akCol.name}}
+                            {%- if not loop.last %}, {% endif -%}
+                        {%- endfor -%}
+                        )                         
+                        {%- if rely_button %} RELY {% endif -%}
+                    {%- endif -%}
+                {%- endfor %}        
+            )
+        {%- if description | length > 0 %} COMMENT = '{{ description }}'{% endif %}
+        ;
+        
+        {%- elif materialization == 'view' %}
+        CREATE OR REPLACE VIEW {{ location.mapping }}.{{name}}
+        (
+                {% for col in columns -%}
+                    {{ col.name }}  
+                    {%- if col.description | length > 0 %} COMMENT '{{ col.description }}'{% endif %}
+                    {%- if not loop.last %}, {% endif %}
+                {% endfor %}
+            {%- if description | length > 0 %} COMMENT = '{{ description }}'{% endif %}
+        )    
+        AS
+        {{logic}}
+        ;
+        {%- endif %}
+  id: f0b6697a-7eb4-4925-9f72-ec5eb6318733
+  isDefault: true
