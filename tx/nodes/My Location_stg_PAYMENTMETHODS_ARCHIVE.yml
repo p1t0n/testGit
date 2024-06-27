@@ -1,0 +1,66 @@
+name: stg_PAYMENTMETHODS_ARCHIVE
+color: '#FC7917'
+isSource: false
+columns:
+  - name: PAYMENTMETHODID
+    allowNulls: false
+    dataType: number(38,0)
+    defaultValue: ''
+    description: ''
+    id: 21fed31a-f23a-4b86-8c58-4bb8e511ccc4
+  - name: PAYMENTMETHODNAME
+    allowNulls: false
+    dataType: varchar(100)
+    defaultValue: ''
+    description: ''
+    id: 6da26c46-7e08-4927-92d2-40528a58019f
+  - name: LASTEDITEDBY
+    allowNulls: false
+    dataType: number(38,0)
+    defaultValue: ''
+    description: ''
+    id: 7a2b83d7-1c42-44a4-a60a-55c54f318d59
+  - name: VALIDFROM
+    allowNulls: false
+    dataType: timestamp_ntz(9)
+    defaultValue: ''
+    description: ''
+    id: d7389451-d831-4c22-87ca-c0310e06e3f0
+  - name: VALIDTO
+    allowNulls: false
+    dataType: timestamp_ntz(9)
+    defaultValue: ''
+    description: ''
+    id: 0c8e82c9-3eb2-4fb1-bb49-c6dc54b48ece
+  - name: __load_date
+    allowNulls: false
+    dataType: date
+    defaultValue: current_date()
+    description: load date
+    id: fec7a6d7-b990-49be-9948-2aca710b6e18
+logic: |-
+  SELECT
+      PAYMENTMETHODS_ARCHIVE.PAYMENTMETHODID AS "PAYMENTMETHODID",
+      PAYMENTMETHODS_ARCHIVE.PAYMENTMETHODNAME AS "PAYMENTMETHODNAME",
+      PAYMENTMETHODS_ARCHIVE.LASTEDITEDBY AS "LASTEDITEDBY",
+      PAYMENTMETHODS_ARCHIVE.VALIDFROM AS "VALIDFROM",
+      PAYMENTMETHODS_ARCHIVE.VALIDTO AS "VALIDTO",
+      current_date() AS "__load_date"
+  FROM {{ref('My Location', 'PAYMENTMETHODS_ARCHIVE')}} "PAYMENTMETHODS_ARCHIVE"
+description: ''
+logicalName: PAYMENTMETHODS_ARCHIVE dimension
+columnSets: []
+templateId: f0b6697a-7eb4-4925-9f72-ec5eb6318733
+materialization: table
+storageLocationId: b8e59275-921c-43d3-a3b9-01496e39d928
+preCreate: Some SQL text
+postCreate: Some SQL text
+preRun: Some SQL text
+postRun: Some SQL text
+rely_button: true
+id: 50929d94-f2c6-4348-9b48-ba8f629dd4af
+nodeFormat: dynamic
+references:
+  e9d3409b-21df-4382-9dd0-655504ac00a1:
+    parentTableId: 10240f6d-b425-4ef4-9a23-9a71081811b3
+    id: e9d3409b-21df-4382-9dd0-655504ac00a1

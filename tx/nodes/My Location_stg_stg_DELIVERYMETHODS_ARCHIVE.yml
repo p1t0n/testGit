@@ -1,0 +1,74 @@
+name: stg_stg_DELIVERYMETHODS_ARCHIVE
+color: '#FC7917'
+isSource: false
+columns:
+  - name: DELIVERYMETHODID
+    allowNulls: false
+    dataType: number(38,0)
+    defaultValue: ''
+    description: ''
+    id: 90e9c80a-8bc8-4219-a83d-5f49553a427c
+  - name: DELIVERYMETHODNAME
+    allowNulls: false
+    dataType: varchar(100)
+    defaultValue: ''
+    description: ''
+    id: b522c6d4-28ea-41dd-a942-7d6e62b1a6fd
+  - name: LASTEDITEDBY
+    allowNulls: false
+    dataType: number(38,0)
+    defaultValue: ''
+    description: ''
+    id: b9be9279-9630-4a8d-b175-e9222c761cdc
+  - name: VALIDFROM
+    allowNulls: false
+    dataType: timestamp_ntz(9)
+    defaultValue: ''
+    description: ''
+    id: f13c1bad-6016-4ec4-bc7e-753c54852d7e
+  - name: VALIDTO
+    allowNulls: false
+    dataType: timestamp_ntz(9)
+    defaultValue: ''
+    description: ''
+    id: 6630dbe0-52e6-4f11-ab96-9fb9e36ef45d
+  - name: __load_date
+    allowNulls: false
+    dataType: date
+    defaultValue: current_date()
+    description: load date
+    id: a4035607-3121-4be8-b00c-6c0630e84009
+  - name: __load_date_1
+    allowNulls: false
+    dataType: date
+    defaultValue: current_date()
+    description: load date
+    id: af8415ed-9efc-4464-a49a-e59ee2916363
+logic: >-
+  SELECT
+      stg_DELIVERYMETHODS_ARCHIVE.DELIVERYMETHODID AS "DELIVERYMETHODID",
+      stg_DELIVERYMETHODS_ARCHIVE.DELIVERYMETHODNAME AS "DELIVERYMETHODNAME",
+      stg_DELIVERYMETHODS_ARCHIVE.LASTEDITEDBY AS "LASTEDITEDBY",
+      stg_DELIVERYMETHODS_ARCHIVE.VALIDFROM AS "VALIDFROM",
+      stg_DELIVERYMETHODS_ARCHIVE.VALIDTO AS "VALIDTO",
+      stg_DELIVERYMETHODS_ARCHIVE.__load_date AS "__load_date",
+      current_date() AS "__load_date_1"
+  FROM {{ref('My Location', 'stg_DELIVERYMETHODS_ARCHIVE')}}
+  "stg_DELIVERYMETHODS_ARCHIVE"
+description: ''
+logicalName: DELIVERYMETHODS_ARCHIVE dimension dimension
+columnSets: []
+templateId: f0b6697a-7eb4-4925-9f72-ec5eb6318733
+materialization: table
+storageLocationId: b8e59275-921c-43d3-a3b9-01496e39d928
+preCreate: Some SQL text
+postCreate: Some SQL text
+preRun: Some SQL text
+postRun: Some SQL text
+rely_button: true
+id: b390b00f-9914-4ee1-98da-f2e113a56463
+nodeFormat: dynamic
+references:
+  01aff707-20ed-431c-88d1-5ec134112f2a:
+    parentTableId: 5ea13667-a1bf-4ed6-9cb7-c9585ceffe77
+    id: 01aff707-20ed-431c-88d1-5ec134112f2a

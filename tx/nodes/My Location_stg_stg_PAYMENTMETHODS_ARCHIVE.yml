@@ -1,0 +1,74 @@
+name: stg_stg_PAYMENTMETHODS_ARCHIVE
+color: '#FC7917'
+isSource: false
+columns:
+  - name: PAYMENTMETHODID
+    allowNulls: false
+    dataType: number(38,0)
+    defaultValue: ''
+    description: ''
+    id: 97640041-4494-46c3-963f-cde02759945c
+  - name: PAYMENTMETHODNAME
+    allowNulls: false
+    dataType: varchar(100)
+    defaultValue: ''
+    description: ''
+    id: 872753df-6310-4379-905c-983c38fb0aab
+  - name: LASTEDITEDBY
+    allowNulls: false
+    dataType: number(38,0)
+    defaultValue: ''
+    description: ''
+    id: 3af0f9c7-1778-4cba-8cef-d81cba7372ec
+  - name: VALIDFROM
+    allowNulls: false
+    dataType: timestamp_ntz(9)
+    defaultValue: ''
+    description: ''
+    id: 1290a5ba-50f8-42cb-aeac-6770d26cf9f3
+  - name: VALIDTO
+    allowNulls: false
+    dataType: timestamp_ntz(9)
+    defaultValue: ''
+    description: ''
+    id: d280fdd3-66cc-4061-9565-6738b08aa519
+  - name: __load_date
+    allowNulls: false
+    dataType: date
+    defaultValue: current_date()
+    description: load date
+    id: a7d4a755-45c7-4b55-9f39-66b7bf263c98
+  - name: __load_date_1
+    allowNulls: false
+    dataType: date
+    defaultValue: current_date()
+    description: load date
+    id: de021dbb-a7f9-4786-98de-3d8fe65fdbbf
+logic: >-
+  SELECT
+      stg_PAYMENTMETHODS_ARCHIVE.PAYMENTMETHODID AS "PAYMENTMETHODID",
+      stg_PAYMENTMETHODS_ARCHIVE.PAYMENTMETHODNAME AS "PAYMENTMETHODNAME",
+      stg_PAYMENTMETHODS_ARCHIVE.LASTEDITEDBY AS "LASTEDITEDBY",
+      stg_PAYMENTMETHODS_ARCHIVE.VALIDFROM AS "VALIDFROM",
+      stg_PAYMENTMETHODS_ARCHIVE.VALIDTO AS "VALIDTO",
+      stg_PAYMENTMETHODS_ARCHIVE.__load_date AS "__load_date",
+      current_date() AS "__load_date_1"
+  FROM {{ref('My Location', 'stg_PAYMENTMETHODS_ARCHIVE')}}
+  "stg_PAYMENTMETHODS_ARCHIVE"
+description: ''
+logicalName: PAYMENTMETHODS_ARCHIVE dimension dimension
+columnSets: []
+templateId: f0b6697a-7eb4-4925-9f72-ec5eb6318733
+materialization: table
+storageLocationId: b8e59275-921c-43d3-a3b9-01496e39d928
+preCreate: Some SQL text
+postCreate: Some SQL text
+preRun: Some SQL text
+postRun: Some SQL text
+rely_button: true
+id: 0d3f69d2-090b-47d1-8a30-a8249f68e4cf
+nodeFormat: dynamic
+references:
+  038f5d81-bcf8-43d0-8310-54593a0ec8d6:
+    parentTableId: 50929d94-f2c6-4348-9b48-ba8f629dd4af
+    id: 038f5d81-bcf8-43d0-8310-54593a0ec8d6
