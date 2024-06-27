@@ -1,0 +1,81 @@
+name: stg_stg_stg_PAYMENTMETHODS_ARCHIVE
+color: '#FC7917'
+isSource: false
+columns:
+  - name: PAYMENTMETHODID
+    allowNulls: false
+    dataType: number(38,0)
+    defaultValue: ''
+    description: ''
+    id: 74a27da9-c665-4831-ad76-e2dfaf86fb74
+  - name: PAYMENTMETHODNAME
+    allowNulls: false
+    dataType: varchar(100)
+    defaultValue: ''
+    description: ''
+    id: d2616076-1968-4d82-889f-c5e67c9fa8f9
+  - name: LASTEDITEDBY
+    allowNulls: false
+    dataType: number(38,0)
+    defaultValue: ''
+    description: ''
+    id: 94d986f4-19fc-4662-8102-23d45e57695c
+  - name: VALIDFROM
+    allowNulls: false
+    dataType: timestamp_ntz(9)
+    defaultValue: ''
+    description: ''
+    id: c406227f-42d3-4a9c-bdab-e227c7367e4c
+  - name: VALIDTO
+    allowNulls: false
+    dataType: timestamp_ntz(9)
+    defaultValue: ''
+    description: ''
+    id: 32b35c71-3227-4776-8d82-55900face18b
+  - name: __load_date
+    allowNulls: false
+    dataType: date
+    defaultValue: current_date()
+    description: load date
+    id: 9ded2ca1-5f91-43fa-abef-cab27fe556e1
+  - name: __load_date_1
+    allowNulls: false
+    dataType: date
+    defaultValue: current_date()
+    description: load date
+    id: ab57ac8c-45b5-4d8f-9d37-536c34c16c61
+  - name: __load_date_2
+    allowNulls: false
+    dataType: date
+    defaultValue: current_date()
+    description: load date
+    id: 037f63e5-07b8-49b3-a888-3869053e2d12
+logic: >-
+  SELECT
+      stg_stg_PAYMENTMETHODS_ARCHIVE.PAYMENTMETHODID AS "PAYMENTMETHODID",
+      stg_stg_PAYMENTMETHODS_ARCHIVE.PAYMENTMETHODNAME AS "PAYMENTMETHODNAME",
+      stg_stg_PAYMENTMETHODS_ARCHIVE.LASTEDITEDBY AS "LASTEDITEDBY",
+      stg_stg_PAYMENTMETHODS_ARCHIVE.VALIDFROM AS "VALIDFROM",
+      stg_stg_PAYMENTMETHODS_ARCHIVE.VALIDTO AS "VALIDTO",
+      stg_stg_PAYMENTMETHODS_ARCHIVE.__load_date AS "__load_date",
+      stg_stg_PAYMENTMETHODS_ARCHIVE.__load_date_1 AS "__load_date_1",
+      current_date() AS "__load_date_2"
+  FROM {{ref('My Location', 'stg_stg_PAYMENTMETHODS_ARCHIVE')}}
+  "stg_stg_PAYMENTMETHODS_ARCHIVE"
+description: ''
+logicalName: PAYMENTMETHODS_ARCHIVE dimension dimension dimension
+columnSets: []
+templateId: f0b6697a-7eb4-4925-9f72-ec5eb6318733
+materialization: table
+storageLocationId: b8e59275-921c-43d3-a3b9-01496e39d928
+preCreate: Some SQL text
+postCreate: Some SQL text
+preRun: Some SQL text
+postRun: Some SQL text
+rely_button: true
+id: c47db6eb-fea5-4eed-a920-17c8eadf3da3
+nodeFormat: dynamic
+references:
+  446fd454-041d-40fb-8eed-b139bfedf330:
+    parentTableId: 0d3f69d2-090b-47d1-8a30-a8249f68e4cf
+    id: 446fd454-041d-40fb-8eed-b139bfedf330
