@@ -1,0 +1,122 @@
+name: stg_COUNTRIES_ARCHIVE
+color: '#FC7917'
+isSource: false
+columns:
+  - name: COUNTRYID
+    allowNulls: false
+    dataType: number(38,0)
+    defaultValue: ''
+    description: ''
+    id: 7cadf11b-b3e0-4ef3-8817-377f2f6661c2
+  - name: COUNTRYNAME
+    allowNulls: false
+    dataType: varchar(120)
+    defaultValue: ''
+    description: ''
+    id: be001728-516e-4823-a721-6ef2088f2d07
+  - name: FORMALNAME
+    allowNulls: false
+    dataType: varchar(120)
+    defaultValue: ''
+    description: ''
+    id: 16881f1e-b198-422f-b764-44ff8aad6aec
+  - name: ISOALPHA3CODE
+    allowNulls: true
+    dataType: varchar(6)
+    defaultValue: ''
+    description: ''
+    id: fa4e59fd-5a9a-4646-8279-9409e9d96b3c
+  - name: ISONUMERICCODE
+    allowNulls: true
+    dataType: number(38,0)
+    defaultValue: ''
+    description: ''
+    id: 0b96df27-10f9-4374-9da7-70937a3d55c1
+  - name: COUNTRYTYPE
+    allowNulls: true
+    dataType: varchar(40)
+    defaultValue: ''
+    description: ''
+    id: 61f4ed44-9eaa-4029-a432-32799cb71ee2
+  - name: LATESTRECORDEDPOPULATION
+    allowNulls: true
+    dataType: number(38,0)
+    defaultValue: ''
+    description: ''
+    id: b5d34af8-ea12-4397-8f45-f411aba36cb6
+  - name: CONTINENT
+    allowNulls: false
+    dataType: varchar(60)
+    defaultValue: ''
+    description: ''
+    id: 279b8185-4840-4720-a28c-cec1e255ff55
+  - name: REGION
+    allowNulls: false
+    dataType: varchar(60)
+    defaultValue: ''
+    description: ''
+    id: e2b4740e-d751-4d02-98a8-e5b54e802916
+  - name: SUBREGION
+    allowNulls: false
+    dataType: varchar(60)
+    defaultValue: ''
+    description: ''
+    id: 64804eb2-a174-40bd-ba9a-df2607c1d993
+  - name: LASTEDITEDBY
+    allowNulls: false
+    dataType: number(38,0)
+    defaultValue: ''
+    description: ''
+    id: 8b3fe390-198f-400c-9385-2c9f1246423f
+  - name: VALIDFROM
+    allowNulls: false
+    dataType: timestamp_ntz(9)
+    defaultValue: ''
+    description: ''
+    id: 79409767-a928-4bef-8f3e-b01399a49ab7
+  - name: VALIDTO
+    allowNulls: false
+    dataType: timestamp_ntz(9)
+    defaultValue: ''
+    description: ''
+    id: 3614fbf2-4449-4ddc-8461-975657549936
+  - name: __load_date
+    allowNulls: false
+    dataType: date
+    defaultValue: current_date()
+    description: load date
+    id: 45e50b2e-5837-4692-be61-e52fa8e13a4f
+logic: |-
+  SELECT
+      COUNTRIES_ARCHIVE.COUNTRYID AS "COUNTRYID",
+      COUNTRIES_ARCHIVE.COUNTRYNAME AS "COUNTRYNAME",
+      COUNTRIES_ARCHIVE.FORMALNAME AS "FORMALNAME",
+      COUNTRIES_ARCHIVE.ISOALPHA3CODE AS "ISOALPHA3CODE",
+      COUNTRIES_ARCHIVE.ISONUMERICCODE AS "ISONUMERICCODE",
+      COUNTRIES_ARCHIVE.COUNTRYTYPE AS "COUNTRYTYPE",
+      COUNTRIES_ARCHIVE.LATESTRECORDEDPOPULATION AS "LATESTRECORDEDPOPULATION",
+      COUNTRIES_ARCHIVE.CONTINENT AS "CONTINENT",
+      COUNTRIES_ARCHIVE.REGION AS "REGION",
+      COUNTRIES_ARCHIVE.SUBREGION AS "SUBREGION",
+      COUNTRIES_ARCHIVE.LASTEDITEDBY AS "LASTEDITEDBY",
+      COUNTRIES_ARCHIVE.VALIDFROM AS "VALIDFROM",
+      COUNTRIES_ARCHIVE.VALIDTO AS "VALIDTO",
+      current_date() AS "__load_date"
+  FROM {{ref('My Location', 'COUNTRIES_ARCHIVE')}} "COUNTRIES_ARCHIVE"
+description: ''
+logicalName: COUNTRIES_ARCHIVE dimension
+columnSets: []
+templateId: f0b6697a-7eb4-4925-9f72-ec5eb6318733
+materialization: table
+storageLocationId: e1f1f2e4-a2c0-4db1-8639-88fdb77cb203
+preCreate: Some SQL text
+postCreate: Some SQL text
+preRun: Some SQL text
+postRun: Some SQL text
+rely_button: true
+id: 18c00db9-6e7f-42b0-9326-d5a0d9b84e8b
+nodeFormat: dynamic
+references:
+  4852b393-4570-4d42-9ad3-9fc82ed1f414:
+    parentTableId: f4ab86af-6144-41bd-9ecb-a784f70f6c08
+    id: 4852b393-4570-4d42-9ad3-9fc82ed1f414

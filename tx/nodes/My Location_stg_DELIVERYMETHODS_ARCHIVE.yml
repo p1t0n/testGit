@@ -1,0 +1,67 @@
+name: stg_DELIVERYMETHODS_ARCHIVE
+color: '#FC7917'
+isSource: false
+columns:
+  - name: DELIVERYMETHODID
+    allowNulls: false
+    dataType: number(38,0)
+    defaultValue: ''
+    description: ''
+    id: f2ea435c-dc02-41f3-9fcc-eecbaf5ab4ea
+  - name: DELIVERYMETHODNAME
+    allowNulls: false
+    dataType: varchar(100)
+    defaultValue: ''
+    description: ''
+    id: 3a522362-ea93-4cce-9c55-b75637a0ea67
+  - name: LASTEDITEDBY
+    allowNulls: false
+    dataType: number(38,0)
+    defaultValue: ''
+    description: ''
+    id: d3ef31a9-4f0c-43ea-9723-dbecd32a11a7
+  - name: VALIDFROM
+    allowNulls: false
+    dataType: timestamp_ntz(9)
+    defaultValue: ''
+    description: ''
+    id: e8d389d9-bf05-42e5-b3af-5deb4bda90d9
+  - name: VALIDTO
+    allowNulls: false
+    dataType: timestamp_ntz(9)
+    defaultValue: ''
+    description: ''
+    id: 7315600a-74c1-48eb-8ef4-c728d03afec1
+  - name: __load_date
+    allowNulls: false
+    dataType: date
+    defaultValue: current_date()
+    description: load date
+    id: 7a428703-137c-4ed7-a32c-cf1d3f095060
+logic: >-
+  SELECT
+      DELIVERYMETHODS_ARCHIVE.DELIVERYMETHODID AS "DELIVERYMETHODID",
+      DELIVERYMETHODS_ARCHIVE.DELIVERYMETHODNAME AS "DELIVERYMETHODNAME",
+      DELIVERYMETHODS_ARCHIVE.LASTEDITEDBY AS "LASTEDITEDBY",
+      DELIVERYMETHODS_ARCHIVE.VALIDFROM AS "VALIDFROM",
+      DELIVERYMETHODS_ARCHIVE.VALIDTO AS "VALIDTO",
+      current_date() AS "__load_date"
+  FROM {{ref('My Location', 'DELIVERYMETHODS_ARCHIVE')}}
+  "DELIVERYMETHODS_ARCHIVE"
+description: ''
+logicalName: DELIVERYMETHODS_ARCHIVE dimension
+columnSets: []
+templateId: f0b6697a-7eb4-4925-9f72-ec5eb6318733
+materialization: table
+storageLocationId: e1f1f2e4-a2c0-4db1-8639-88fdb77cb203
+preCreate: Some SQL text
+postCreate: Some SQL text
+preRun: Some SQL text
+postRun: Some SQL text
+rely_button: true
+id: 5973882a-348e-4c47-80b5-4c4d7c4027ec
+nodeFormat: dynamic
+references:
+  54a9d7d4-3a08-4c3c-921f-baec51d569c4:
+    parentTableId: 973fb922-1479-4d93-b79e-c1252f3a44da
+    id: 54a9d7d4-3a08-4c3c-921f-baec51d569c4
