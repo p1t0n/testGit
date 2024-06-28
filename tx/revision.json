@@ -173,7 +173,7 @@
         "Name": "BINARYEXAMPLE",
         "LogicalName": "BINARYEXAMPLE",
         "IsManyToMany": false,
-        "SchemaId": "b03a7857-86d3-4338-a8d1-67bf0a4ea73a",
+        "SchemaId": null,
         "Generate": true,
         "PostScript": null,
         "Comment": null,
@@ -185,7 +185,7 @@
         "TemplateIds": [],
         "TableTemplateId": null,
         "TableType": 1,
-        "LocationId": "8fb6ca48-5eec-4dbd-81a3-1ff5a481da0b",
+        "LocationId": "e1f1f2e4-a2c0-4db1-8639-88fdb77cb203",
         "Columns": {
           "bd5766af-62d4-4621-9ed6-af12fa5983d6": {
             "ColumnId": "bd5766af-62d4-4621-9ed6-af12fa5983d6",
@@ -622,7 +622,7 @@
         "Name": "BINARYNEW",
         "LogicalName": "BINARYNEW",
         "IsManyToMany": false,
-        "SchemaId": "b03a7857-86d3-4338-a8d1-67bf0a4ea73a",
+        "SchemaId": null,
         "Generate": true,
         "PostScript": null,
         "Comment": null,
@@ -634,7 +634,7 @@
         "TemplateIds": [],
         "TableTemplateId": null,
         "TableType": 1,
-        "LocationId": "8fb6ca48-5eec-4dbd-81a3-1ff5a481da0b",
+        "LocationId": "e1f1f2e4-a2c0-4db1-8639-88fdb77cb203",
         "Columns": {
           "18bbb833-8383-4a40-bbfa-22ff30be5477": {
             "ColumnId": "18bbb833-8383-4a40-bbfa-22ff30be5477",
@@ -1071,7 +1071,7 @@
         "Name": "DIM_SUPPLIER",
         "LogicalName": "DIM_SUPPLIER",
         "IsManyToMany": false,
-        "SchemaId": "b03a7857-86d3-4338-a8d1-67bf0a4ea73a",
+        "SchemaId": null,
         "Generate": true,
         "PostScript": null,
         "Comment": null,
@@ -1083,7 +1083,7 @@
         "TemplateIds": [],
         "TableTemplateId": null,
         "TableType": 1,
-        "LocationId": "8fb6ca48-5eec-4dbd-81a3-1ff5a481da0b",
+        "LocationId": "e1f1f2e4-a2c0-4db1-8639-88fdb77cb203",
         "Columns": {
           "61f61f50-8cb0-44c0-bad3-b6cf38e5b647": {
             "ColumnId": "61f61f50-8cb0-44c0-bad3-b6cf38e5b647",
