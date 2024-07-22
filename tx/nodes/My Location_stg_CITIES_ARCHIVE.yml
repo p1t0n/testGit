@@ -1,0 +1,95 @@
+name: stg_CITIES_ARCHIVE
+color: '#8E44AD'
+isSource: false
+columns:
+  - name: CITYID
+    allowNulls: false
+    dataType: number(38,0)
+    defaultValue: ''
+    description: description
+    id: 2b30776c-0928-4f6f-9b64-06312b85f4e1
+  - name: CITYNAME
+    allowNulls: false
+    dataType: varchar(100)
+    defaultValue: ''
+    description: ''
+    id: 44057335-07e3-4c6c-9ee9-2c90a9d31199
+  - name: STATEPROVINCEID
+    allowNulls: false
+    dataType: number(38,0)
+    defaultValue: ''
+    description: ''
+    id: 75d00e3c-c5b6-4933-a819-1e4547ff25c9
+  - name: LOCATION
+    allowNulls: false
+    dataType: number(38,0)
+    defaultValue: ''
+    description: ''
+    id: 1be1258c-b8d3-4621-9de6-5a9d984c327f
+  - name: LATESTRECORDEDPOPULATION
+    allowNulls: true
+    dataType: number(38,0)
+    defaultValue: ''
+    description: ''
+    id: 2923d13d-d14b-409f-9299-059d0af76bd8
+  - name: LASTEDITEDBY
+    allowNulls: false
+    dataType: number(38,0)
+    defaultValue: ''
+    description: ''
+    id: 09ca1dee-f7d7-4cc2-b752-cf32188a9a4c
+  - name: VALIDFROM
+    allowNulls: false
+    dataType: timestamp_ntz(9)
+    defaultValue: ''
+    description: ''
+    id: d0e5d266-06b1-4183-9947-f8ef52323a30
+  - name: VALIDTO
+    allowNulls: false
+    dataType: timestamp_ntz(9)
+    defaultValue: ''
+    description: ''
+    id: 74a854d1-22db-4295-89b5-70b4079de634
+  - name: __load_date
+    allowNulls: false
+    dataType: date
+    defaultValue: current_date()
+    description: load date
+    id: cc211c02-6667-4051-8035-e4ab467fb7c9
+logic: |-
+  SELECT
+      CITIES_ARCHIVE.CITYID AS "CITYID",
+      CITIES_ARCHIVE.CITYNAME AS "CITYNAME",
+      CITIES_ARCHIVE.STATEPROVINCEID AS "STATEPROVINCEID",
+      CITIES_ARCHIVE.LOCATION AS "LOCATION",
+      CITIES_ARCHIVE.LATESTRECORDEDPOPULATION AS "LATESTRECORDEDPOPULATION",
+      CITIES_ARCHIVE.LASTEDITEDBY AS "LASTEDITEDBY",
+      CITIES_ARCHIVE.VALIDFROM AS "VALIDFROM",
+      CITIES_ARCHIVE.VALIDTO AS "VALIDTO",
+      current_date() AS "__load_date"
+  FROM {{ref('My Location', 'CITIES_ARCHIVE')}} "CITIES_ARCHIVE"
+description: ''
+logicalName: CITIES_ARCHIVE dimension
+columnSets: []
+templateId: 2168e0c1-186b-4952-ae36-9b93af4f4a35
+materialization: table
+storageLocationId: 7a92cbf9-0607-484f-8a1c-30e81ca415c7
+preCreate:
+  value: ''
+  isValidated: false
+postCreate:
+  value: ''
+  isValidated: false
+preRun:
+  value: ''
+  isValidated: false
+postRun:
+  value: ''
+  isValidated: false
+rely_button: true
+id: 53053c7a-0778-4b2c-ae7e-e8c76c40b1d1
+nodeFormat: dynamic
+references:
+  157cd1a0-f315-4a3c-aa0a-d5c44c4565c4:
+    parentTableId: e9e60ab4-d70f-45cc-a1cc-69ac3f2e87bf
+    id: 157cd1a0-f315-4a3c-aa0a-d5c44c4565c4

@@ -1,0 +1,131 @@
+sourceId: 6edc914c-08a5-4f07-808b-6606c2ed4499
+name: PEOPLE_ARCHIVE
+locationId: 7a92cbf9-0607-484f-8a1c-30e81ca415c7
+description: ''
+columns:
+  - name: PERSONID
+    dataType: number(38,0)
+    id: 3ce444c2-1804-4bae-a109-5ceef504eaac
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: FULLNAME
+    dataType: varchar(100)
+    id: 0db9e05d-fadb-416f-a11f-374964a8bf9d
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: PREFERREDNAME
+    dataType: varchar(100)
+    id: ed7cd87b-7a53-46e8-bcd2-46872cc12f65
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: SEARCHNAME
+    dataType: varchar(202)
+    id: 67d2cf39-6d3a-4386-a2ad-3ab1994e2b57
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: ISPERMITTEDTOLOGON
+    dataType: boolean
+    id: fa2572b6-7a9d-4ad9-b387-6b512fa01e45
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: LOGONNAME
+    dataType: varchar(512)
+    id: b00a3d8a-42e7-4c9c-b39a-83b1727e6f3a
+    allowNulls: true
+    defaultValue: ''
+    description: ''
+  - name: ISEXTERNALLOGONPROVIDER
+    dataType: boolean
+    id: e8921711-2074-4a78-934b-94d7959b06f4
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: HASHEDPASSWORD
+    dataType: binary(8388608)
+    id: 12b56351-65b6-4cee-90aa-232582c5dd40
+    allowNulls: true
+    defaultValue: ''
+    description: ''
+  - name: ISSYSTEMUSER
+    dataType: boolean
+    id: e711efb3-7139-4b10-89dc-3645108aeb11
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: ISEMPLOYEE
+    dataType: boolean
+    id: 50b2724d-52e8-4822-b962-157895368364
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: ISSALESPERSON
+    dataType: boolean
+    id: 466dc6c7-2610-4d9a-8efe-fc1bd0080317
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: USERPREFERENCES
+    dataType: varchar(16777216)
+    id: 7d03a2fa-d6a9-4d1a-b959-76a2b7848abc
+    allowNulls: true
+    defaultValue: ''
+    description: ''
+  - name: PHONENUMBER
+    dataType: varchar(40)
+    id: 44588253-e8c1-4a18-962a-24669e46c235
+    allowNulls: true
+    defaultValue: ''
+    description: ''
+  - name: FAXNUMBER
+    dataType: varchar(40)
+    id: 656968ed-31b1-4372-91e4-c551de3fbd40
+    allowNulls: true
+    defaultValue: ''
+    description: ''
+  - name: EMAILADDRESS
+    dataType: varchar(512)
+    id: 012f699f-bf47-481d-9374-25ab5268cbda
+    allowNulls: true
+    defaultValue: ''
+    description: ''
+  - name: PHOTO
+    dataType: binary(8388608)
+    id: 097f7019-f94a-4974-8b35-e87fb75171c5
+    allowNulls: true
+    defaultValue: ''
+    description: ''
+  - name: CUSTOMFIELDS
+    dataType: varchar(16777216)
+    id: 3b39313e-d5cb-433c-8408-e5de3647e761
+    allowNulls: true
+    defaultValue: ''
+    description: ''
+  - name: OTHERLANGUAGES
+    dataType: varchar(16777216)
+    id: 7fe282b7-3bed-472b-901d-78bec30fff93
+    allowNulls: true
+    defaultValue: ''
+    description: ''
+  - name: LASTEDITEDBY
+    dataType: number(38,0)
+    id: 1b8b2aa8-3e56-42ab-b01c-4a5925493d0a
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: VALIDFROM
+    dataType: timestamp_ntz(9)
+    id: ad475332-ae8f-4f85-af6d-f8ad05c49388
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: VALIDTO
+    dataType: timestamp_ntz(9)
+    id: bed0ed73-4e49-440e-be68-c9352419d54e
+    allowNulls: false
+    defaultValue: ''
+    description: ''

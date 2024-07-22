@@ -1,0 +1,35 @@
+sourceId: 2e92ed41-e3af-4e41-95fe-0947e380d29c
+name: PAYMENTMETHODS_ARCHIVE
+locationId: 7a92cbf9-0607-484f-8a1c-30e81ca415c7
+description: ''
+columns:
+  - name: PAYMENTMETHODID
+    dataType: number(38,0)
+    id: 0840ab6d-1a46-4eed-b668-bd9039c702a4
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: PAYMENTMETHODNAME
+    dataType: varchar(100)
+    id: 6c0c1a13-e96a-46c4-832a-601ff9510587
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: LASTEDITEDBY
+    dataType: number(38,0)
+    id: 7f15ad59-e044-4a89-9463-b3439c130592
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: VALIDFROM
+    dataType: timestamp_ntz(9)
+    id: 2eaaedd1-ee51-4012-ba4f-a92e4e245d5f
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: VALIDTO
+    dataType: timestamp_ntz(9)
+    id: b1440688-2d6b-4d0a-83f1-3b57a45f1d26
+    allowNulls: false
+    defaultValue: ''
+    description: ''

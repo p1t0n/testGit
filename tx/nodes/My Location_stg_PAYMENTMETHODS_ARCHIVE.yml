@@ -1,0 +1,74 @@
+name: stg_PAYMENTMETHODS_ARCHIVE
+color: '#8E44AD'
+isSource: false
+columns:
+  - name: PAYMENTMETHODID
+    allowNulls: false
+    dataType: number(38,0)
+    defaultValue: ''
+    description: ''
+    id: 57e5e347-3a7e-4ed8-87f1-8fbd23d9cc0a
+  - name: PAYMENTMETHODNAME
+    allowNulls: false
+    dataType: varchar(100)
+    defaultValue: ''
+    description: ''
+    id: d7d131fc-2f0b-4b11-8c07-984542effede
+  - name: LASTEDITEDBY
+    allowNulls: false
+    dataType: number(38,0)
+    defaultValue: ''
+    description: ''
+    id: f2b25fde-502e-4aa4-aa04-31f30b752a12
+  - name: VALIDFROM
+    allowNulls: false
+    dataType: timestamp_ntz(9)
+    defaultValue: ''
+    description: ''
+    id: 76594142-e834-4460-9ff5-71a3eaa50af5
+  - name: VALIDTO
+    allowNulls: false
+    dataType: timestamp_ntz(9)
+    defaultValue: ''
+    description: ''
+    id: c584320d-6127-47bd-a8ac-48a7874735f4
+  - name: __load_date
+    allowNulls: false
+    dataType: date
+    defaultValue: current_date()
+    description: load date
+    id: b1e758a6-aaa1-4ce9-bf9c-0f38cab562ea
+logic: |-
+  SELECT
+      PAYMENTMETHODS_ARCHIVE.PAYMENTMETHODID AS "PAYMENTMETHODID",
+      PAYMENTMETHODS_ARCHIVE.PAYMENTMETHODNAME AS "PAYMENTMETHODNAME",
+      PAYMENTMETHODS_ARCHIVE.LASTEDITEDBY AS "LASTEDITEDBY",
+      PAYMENTMETHODS_ARCHIVE.VALIDFROM AS "VALIDFROM",
+      PAYMENTMETHODS_ARCHIVE.VALIDTO AS "VALIDTO",
+      current_date() AS "__load_date"
+  FROM {{ref('My Location', 'PAYMENTMETHODS_ARCHIVE')}} "PAYMENTMETHODS_ARCHIVE"
+description: ''
+logicalName: PAYMENTMETHODS_ARCHIVE dimension
+columnSets: []
+templateId: 2168e0c1-186b-4952-ae36-9b93af4f4a35
+materialization: table
+storageLocationId: 7a92cbf9-0607-484f-8a1c-30e81ca415c7
+preCreate:
+  value: ''
+  isValidated: false
+postCreate:
+  value: ''
+  isValidated: false
+preRun:
+  value: ''
+  isValidated: false
+postRun:
+  value: ''
+  isValidated: false
+rely_button: true
+id: a6330c7a-4cc6-481e-837d-7aed02f087ae
+nodeFormat: dynamic
+references:
+  b7c231a3-3a2a-4c2a-8eeb-fe9fb3c601e6:
+    parentTableId: 2e92ed41-e3af-4e41-95fe-0947e380d29c
+    id: b7c231a3-3a2a-4c2a-8eeb-fe9fb3c601e6

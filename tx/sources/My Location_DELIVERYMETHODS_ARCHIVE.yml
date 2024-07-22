@@ -1,0 +1,35 @@
+sourceId: 5848e3ad-aa2a-40e7-b20f-af406e401be4
+name: DELIVERYMETHODS_ARCHIVE
+locationId: 7a92cbf9-0607-484f-8a1c-30e81ca415c7
+description: ''
+columns:
+  - name: DELIVERYMETHODID
+    dataType: number(38,0)
+    id: dbd5a269-b45a-44db-b356-4116001f9277
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: DELIVERYMETHODNAME
+    dataType: varchar(100)
+    id: 1be9fc19-1e5a-4ed5-be48-26fece630135
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: LASTEDITEDBY
+    dataType: number(38,0)
+    id: 2ac15bf3-24ea-492f-90fc-8947219fb4bf
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: VALIDFROM
+    dataType: timestamp_ntz(9)
+    id: 4e4d6fe1-549f-46c4-ab6f-5dfe2cacf801
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: VALIDTO
+    dataType: timestamp_ntz(9)
+    id: 75893e0b-9b83-4aef-b4d5-63f4577e2338
+    allowNulls: false
+    defaultValue: ''
+    description: ''

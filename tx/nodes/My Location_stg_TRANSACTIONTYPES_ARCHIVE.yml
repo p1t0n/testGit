@@ -1,0 +1,75 @@
+name: stg_TRANSACTIONTYPES_ARCHIVE
+color: '#FC7917'
+isSource: false
+columns:
+  - name: TRANSACTIONTYPEID
+    allowNulls: false
+    dataType: number(38,0)
+    defaultValue: ''
+    description: ''
+    id: c3baa716-810e-4056-b3a1-0f046482557b
+  - name: TRANSACTIONTYPENAME
+    allowNulls: false
+    dataType: varchar(100)
+    defaultValue: ''
+    description: ''
+    id: fb7b0125-9fe9-43fe-81d4-01c9fcb611f5
+  - name: LASTEDITEDBY
+    allowNulls: false
+    dataType: number(38,0)
+    defaultValue: ''
+    description: ''
+    id: e24a887c-2511-4cf5-a1ac-7b19c41c50c4
+  - name: VALIDFROM
+    allowNulls: false
+    dataType: timestamp_ntz(9)
+    defaultValue: ''
+    description: ''
+    id: a0ee2bee-0ef2-4666-a897-d8884c777a93
+  - name: VALIDTO
+    allowNulls: false
+    dataType: timestamp_ntz(9)
+    defaultValue: ''
+    description: ''
+    id: 270df58d-5ecd-490f-ac36-4e79eb762ee2
+  - name: __load_date
+    allowNulls: false
+    dataType: date
+    defaultValue: current_date()
+    description: load date
+    id: 2e35c653-be86-4015-b7df-7cb5083a3369
+logic: >-
+  SELECT
+      TRANSACTIONTYPES_ARCHIVE.TRANSACTIONTYPEID AS "TRANSACTIONTYPEID",
+      TRANSACTIONTYPES_ARCHIVE.TRANSACTIONTYPENAME AS "TRANSACTIONTYPENAME",
+      TRANSACTIONTYPES_ARCHIVE.LASTEDITEDBY AS "LASTEDITEDBY",
+      TRANSACTIONTYPES_ARCHIVE.VALIDFROM AS "VALIDFROM",
+      TRANSACTIONTYPES_ARCHIVE.VALIDTO AS "VALIDTO",
+      current_date() AS "__load_date"
+  FROM {{ref('My Location', 'TRANSACTIONTYPES_ARCHIVE')}}
+  "TRANSACTIONTYPES_ARCHIVE"
+description: ''
+logicalName: TRANSACTIONTYPES_ARCHIVE dimension
+columnSets: []
+templateId: f0b6697a-7eb4-4925-9f72-ec5eb6318733
+materialization: table
+storageLocationId: 7a92cbf9-0607-484f-8a1c-30e81ca415c7
+preCreate:
+  value: ''
+  isValidated: false
+postCreate:
+  value: ''
+  isValidated: false
+preRun:
+  value: ''
+  isValidated: false
+postRun:
+  value: ''
+  isValidated: false
+rely_button: true
+id: ec1760bb-2d07-4e3d-8704-2c16cf1057a9
+nodeFormat: dynamic
+references:
+  f3fb5227-765c-4d99-acf1-b99a40c76f68:
+    parentTableId: ebbca297-99eb-48d5-8cde-20eaaee01017
+    id: f3fb5227-765c-4d99-acf1-b99a40c76f68

@@ -1,0 +1,35 @@
+sourceId: ebbca297-99eb-48d5-8cde-20eaaee01017
+name: TRANSACTIONTYPES_ARCHIVE
+locationId: 7a92cbf9-0607-484f-8a1c-30e81ca415c7
+description: ''
+columns:
+  - name: TRANSACTIONTYPEID
+    dataType: number(38,0)
+    id: d20d29c8-b32d-40b3-9af4-d51f0adbd8ab
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: TRANSACTIONTYPENAME
+    dataType: varchar(100)
+    id: c0471652-f1ed-4c1e-866f-10f88a935aa1
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: LASTEDITEDBY
+    dataType: number(38,0)
+    id: 281a823e-888c-4b3f-8fb6-86c24d5dd655
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: VALIDFROM
+    dataType: timestamp_ntz(9)
+    id: ff4202c8-db01-434e-9379-442595a98d9c
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: VALIDTO
+    dataType: timestamp_ntz(9)
+    id: af762b39-d896-4a10-9681-0fb405161ada
+    allowNulls: false
+    defaultValue: ''
+    description: ''

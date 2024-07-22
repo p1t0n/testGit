@@ -1,0 +1,53 @@
+sourceId: e9e60ab4-d70f-45cc-a1cc-69ac3f2e87bf
+name: CITIES_ARCHIVE
+locationId: 7a92cbf9-0607-484f-8a1c-30e81ca415c7
+description: ''
+columns:
+  - name: CITYID
+    dataType: number(38,0)
+    id: 9175aaec-7332-4266-a0a5-c454f2253b3d
+    allowNulls: false
+    defaultValue: ''
+    description: description
+  - name: CITYNAME
+    dataType: varchar(100)
+    id: f11228d1-1c2b-4193-ad4e-eba974f75dc3
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: STATEPROVINCEID
+    dataType: number(38,0)
+    id: 075147e5-25af-4111-b872-7e487e95e4f6
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: LOCATION
+    dataType: number(38,0)
+    id: 5852ae5e-8549-4543-b5f1-0124c93090d8
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: LATESTRECORDEDPOPULATION
+    dataType: number(38,0)
+    id: 06472843-1a86-46da-b6fb-3bbbe0f2ce05
+    allowNulls: true
+    defaultValue: ''
+    description: ''
+  - name: LASTEDITEDBY
+    dataType: number(38,0)
+    id: 9be3b435-fd92-4878-856b-c885b3906b8a
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: VALIDFROM
+    dataType: timestamp_ntz(9)
+    id: 155702f1-96d9-4f3b-994b-72007800c201
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: VALIDTO
+    dataType: timestamp_ntz(9)
+    id: 864f7af4-bc29-4db1-8fa9-5c648a2f318d
+    allowNulls: false
+    defaultValue: ''
+    description: ''

@@ -1,0 +1,83 @@
+sourceId: 16c20e75-f7b3-440e-84ef-ef795c45e864
+name: COUNTRIES_ARCHIVE
+locationId: 7a92cbf9-0607-484f-8a1c-30e81ca415c7
+description: ''
+columns:
+  - name: COUNTRYID
+    dataType: number(38,0)
+    id: 3552b23b-a709-4308-9711-2b70f4542dbc
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: COUNTRYNAME
+    dataType: varchar(120)
+    id: 45ead709-28c3-4b39-a76f-ee9c81c789ae
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: FORMALNAME
+    dataType: varchar(120)
+    id: 858d1343-6225-4e89-8917-678a8f06c969
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: ISOALPHA3CODE
+    dataType: varchar(6)
+    id: eb2b2f28-8e17-4221-966e-6909b9a2668a
+    allowNulls: true
+    defaultValue: ''
+    description: ''
+  - name: ISONUMERICCODE
+    dataType: number(38,0)
+    id: 6dfc3aa8-77da-4f78-9da1-1bef0d3096b7
+    allowNulls: true
+    defaultValue: ''
+    description: ''
+  - name: COUNTRYTYPE
+    dataType: varchar(40)
+    id: 0df51b8f-5174-4dc5-a59e-2643913d5ca1
+    allowNulls: true
+    defaultValue: ''
+    description: ''
+  - name: LATESTRECORDEDPOPULATION
+    dataType: number(38,0)
+    id: d752ab6d-9182-4cd3-840b-bdca7675854c
+    allowNulls: true
+    defaultValue: ''
+    description: ''
+  - name: CONTINENT
+    dataType: varchar(60)
+    id: 5bfcfe09-e3ac-4622-ba00-e3ab8e3c76d1
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: REGION
+    dataType: varchar(60)
+    id: abe69f8d-05a1-4490-99da-d3431bf6214e
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: SUBREGION
+    dataType: varchar(60)
+    id: 5f392a8e-066f-477e-8388-384c78e98daa
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: LASTEDITEDBY
+    dataType: number(38,0)
+    id: 3fbb2884-ad0c-4f3c-afdf-a3fd4286aabb
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: VALIDFROM
+    dataType: timestamp_ntz(9)
+    id: 6e587334-d2c2-4e34-a084-34ce9a72a3a5
+    allowNulls: false
+    defaultValue: ''
+    description: ''
+  - name: VALIDTO
+    dataType: timestamp_ntz(9)
+    id: 3e11a03f-4a79-470f-865c-ebeda2dbb8c2
+    allowNulls: false
+    defaultValue: ''
+    description: ''
